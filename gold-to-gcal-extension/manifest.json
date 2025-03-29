@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "GOLD Schedule to Calendar",
+    "version": "1.0",
+    "description": "Exports your schedule to Google Calendar.",
+    "permissions": [
+      "identity"
+    ],
+    "oauth2": {
+        "client_id": "234515667694-bpntfchjr6tmhv252nv9ifhqsjepi5ui.apps.googleusercontent.com",
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.events",
+          "https://www.googleapis.com/auth/calendar"
+        ]      
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+          "matches": [
+            "https://my.sa.ucsb.edu/gold/WeeklyStudentSchedule.aspx*",
+            "https://my.sa.ucsb.edu/gold/WeeklyCartSchedule.aspx*"
+          ],
+          "js": ["content.js"],
+          "css": ["style.css"]
+        }
+      ]
+  }
+  
